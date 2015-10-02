@@ -1,8 +1,16 @@
-<h1>Post</h1>
 
-<%= @post.title %><br>
-<%= @post.description %><br>
-<%= @post.link %><br>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @post.title %></h3>
+  </div>
+  <div class="panel-body">
+    <p><%= @post.description %></p> 
+    <p>
+      <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+      <%= link_to "Link", @post.link,  target: "_blank" %>
+  </p>
+  </div>
+</div>
 
 <div class="btn-group" role="group"><%= link_to "Home", posts_path, class: "btn btn-default btn-sm" %>
 <%= link_to "Edit", edit_post_path, class: "btn btn-default btn-sm" %>
