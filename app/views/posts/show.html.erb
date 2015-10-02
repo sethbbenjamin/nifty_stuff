@@ -12,9 +12,13 @@
   </div>
 </div>
 
-<div class="btn-group" role="group"><%= link_to "Home", posts_path, class: "btn btn-default btn-sm" %>
-<%= link_to "Edit", edit_post_path, class: "btn btn-default btn-sm" %>
-  <%= link_to "Delete", post_path, method: :delete,
-    data: { confirm: 'You sure?' },
-    class: "btn btn-default btn-sm" %>
-</div>
+
+
+<% if user_signed_in? %>
+  <div class="btn-group" role="group"><%= link_to "Home", posts_path, class: "btn btn-default btn-sm" %>
+    <%= link_to "Edit", edit_post_path, class: "btn btn-default btn-sm" %>
+    <%= link_to "Delete", post_path, method: :delete,
+      data: { confirm: 'You sure?' },
+      class: "btn btn-default btn-sm" %>
+  </div>
+<% end %>

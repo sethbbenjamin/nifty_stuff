@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :find_post, only: [:show, :edit, :destroy, :update]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
 
   #index, show, new, edit, create, update, destroy
@@ -33,8 +34,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     if @post.save
+      flash[:success] = "Saved!"
       redirect_to @post
     else
+      flash[:error] = "Error!"
       render 'new'
     end
 
@@ -46,8 +49,10 @@ class PostsController < ApplicationController
 
 
     if @post.update(post_params)
+      flash[:success] = "Saved!"
       redirect_to @post
     else
+      flash[:error] = "Error!"
       render 'edit'
     end
   end
