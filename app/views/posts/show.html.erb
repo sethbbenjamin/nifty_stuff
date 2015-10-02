@@ -4,6 +4,9 @@
 <%= @post.description %><br>
 <%= @post.link %><br>
 
-<%= link_to "Home", posts_path %>
-<%= link_to "Edit", edit_post_path %>
-<%= link_to "Delete", post_path, method: :delete, data: { confirm: 'You sure?' } %>
+<div class="btn-group" role="group"><%= link_to "Home", posts_path, class: "btn btn-default btn-sm" %>
+<%= link_to "Edit", edit_post_path, class: "btn btn-default btn-sm" %>
+  <%= link_to "Delete", post_path, method: :delete,
+    data: { confirm: 'You sure?' },
+    class: "btn btn-default btn-sm" %>
+</div>
