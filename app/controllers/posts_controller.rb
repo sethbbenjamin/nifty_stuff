@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-
+    authorize @post
   end
 
 
@@ -47,6 +47,7 @@ class PostsController < ApplicationController
 
   def update
 
+    authorize @post
 
     if @post.update(post_params)
       flash[:success] = "Saved!"
@@ -60,6 +61,8 @@ class PostsController < ApplicationController
 
 
   def destroy
+    authorize @post
+
     @post.destroy
     redirect_to posts_path
   end
