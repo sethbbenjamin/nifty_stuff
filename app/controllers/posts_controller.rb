@@ -19,8 +19,8 @@ class PostsController < ApplicationController
 
 
   def new
-
-    @post = Post.new
+    #@post = Post.new
+    @post = current_user.posts.new
   end
 
   def edit
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
 
   def create
 
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
       flash[:success] = "Saved!"
