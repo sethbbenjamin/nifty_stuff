@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
 
+  # Currently unused
   enum role: [:guest, :user, :admin]
 
 end

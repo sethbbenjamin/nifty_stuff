@@ -1,0 +1,4 @@
+<h1>User Posts</h1>
+<% @user.posts.each do |post| %>
+  <%= link_to post.title, post %><br>
+<% end %>
